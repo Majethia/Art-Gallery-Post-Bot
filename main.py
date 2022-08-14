@@ -71,7 +71,8 @@ async def post_function(event):
         )
         await event.reply(f"Request sent to [Art Gallery](t.me/SnortingecstasyArt)\nYour artwork will be posted at an appropriate time\nRequest id: `{m.id}`", link_preview=False)
 
-    except:
+    except Exception as e:
+        await bot.send_message(732913305, str(e))
         await x.edit("Oof you seem to have blocked me, Unblock me and try to post again. :)", buttons=[Button.url("Unblock me", url=("t.me/Art_Gallery_Post_Bot"))])
 
 
